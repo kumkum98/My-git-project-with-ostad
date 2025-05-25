@@ -1,0 +1,16 @@
+name: First deploy
+
+on:                                  #Defines when the workflow should run
+  push:
+    branches:                        #which triggers to run the code only if main has changes
+      - master
+
+jobs:                               #what to do
+  print-file:                       #can be any job build test deploy
+    runs-on: ubuntu-latest
+    steps:                         # one by one nstructionss what to do
+      - name: Checkout code
+        uses: actions/checkout@v3    # uses because its pre built tool to download
+
+      - name: Print hello.txt content
+        run: cat hello.txt           #i give it custom command cat shows the content
